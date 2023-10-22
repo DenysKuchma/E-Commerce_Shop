@@ -1,0 +1,55 @@
+.equipment {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.equipment_title {
+  margin-bottom: 50px;
+}
+.equipment_box {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+.equipment_box_item {
+  margin-bottom: 10px;
+}
+.equipment_box_item_one {
+  grid-row: 1/-1;
+}
+.equipment_box_item .equipment_box_title {
+  background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  text-transform: uppercase;
+  line-height: 50px;
+}
+
+.promo__inner {
+  margin-bottom: 100px;
+  background-image: url(../../../public/images/promo.jpg);
+  min-height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  position: relative;
+}
+.promo__inner .promo__btn {
+  color: #fff;
+  padding: 16px;
+  background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}/*# sourceMappingURL=metaverse.module.css.map */

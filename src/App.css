@@ -65,3 +65,8 @@ body{
 .main {
   flex: 1 ; 
 }
+.section-title {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+

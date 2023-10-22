@@ -1,0 +1,129 @@
+.buy {
+    margin-top: 110px;
+    margin-bottom: 110px;
+    text-align: center;
+    position: relative;
+    overflow-x: hidden;
+
+    .buy__img {
+        margin-bottom: 30px;
+    }
+
+    & .buy__btn {
+        margin: 0 auto;
+    }
+
+    &__bg {
+        background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 400px;
+        font-weight: 700;
+        line-height: 400px;
+        opacity: 0.1;
+        position: absolute;
+        z-index: -1;
+        animation: line-text 10s linear 1s infinite;
+    }
+
+    @keyframes line-text {
+        from {
+            transform: translateX(115%);
+            transform-origin: left center;
+        }
+
+        to {
+            transform: translateX(-115%);
+            transform-origin: right center;
+        }
+    }
+}
+
+.buy__text {
+    font-size: 13px;
+    padding-top: 16px;
+}
+
+.buy__btn {
+    cursor: pointer;
+    border: none;
+    background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+    display: flex;
+    text-transform: uppercase;
+    padding: 1px;
+
+    &__text {
+        color: #F6F4F5;
+        padding: 20px 110px;
+        text-transform: uppercase;
+    }
+
+    &__price {
+        padding: 20px 105px;
+        background-color: #eaeaea;
+    }
+}
+
+.accessories {
+    margin-bottom: 100px;
+
+    &__text {
+        margin-bottom: 30px;
+        background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 36px;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        .accessories__item {
+            padding: 20px;
+            border: 1px solid;
+            border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &_img {
+                margin-bottom: 10px;
+            }
+
+            &_title {
+                font-size: 24px;
+                color: #070707;
+                min-height: 67px;
+                font-weight: 400;
+            }
+
+            &_text {
+                margin-bottom: 35px;
+                margin-top: auto;
+            }
+
+            &_price {
+                font-weight: 700;
+                line-height: 18px;
+                color: #070707;
+                margin-bottom: 20px;
+                margin-top: auto;
+            }
+
+            &_btn {
+                border: 1px solid;
+                border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
+                padding: 6px;
+                font-weight: 700;
+                background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                width: 100%;
+            }
+        }
+    }
+}

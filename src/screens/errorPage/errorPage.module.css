@@ -1,0 +1,28 @@
+.error_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.error_page__content {
+  text-align: center;
+}
+.error_page__content__title {
+  font-size: 36px;
+  color: #ff0000;
+  margin-bottom: 20px;
+}
+.error_page__content__description {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+}
+.error_page__content a {
+  color: #007bff;
+  text-decoration: none;
+}
+.error_page__content a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=errorPage.module.css.map */

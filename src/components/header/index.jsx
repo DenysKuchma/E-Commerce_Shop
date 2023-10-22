@@ -5,7 +5,6 @@ import  styles  from './header.module.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../redux/reducers/userReducer';
-import  { useNavigate } from 'react-router-dom'
 
 const Header = () => {
     const dispatch = useDispatch();
