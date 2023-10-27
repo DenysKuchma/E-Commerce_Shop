@@ -1,19 +1,21 @@
-
-export const SET_USER_TOKEN_NAME = 'SET_USER_TOKEN_NAME'
+export const SET_USER_TOKEN = 'SET_USER_TOKEN'
+export const GET_USER_TOKEN = 'GET_USER_TOKEN'
 export const LOGOUT_USER = 'LOGOUT_USER'
 
 const defaultState = {
     token: '',
     login: '',
+    password: '',
 }
 
 export default function userReducer(state = defaultState, action){
     switch(action.type){
-        case SET_USER_TOKEN_NAME:
+        case SET_USER_TOKEN:
             return {
                 ...state,
                 token: action.payload.token,
                 login: action.payload.login,
+                password: action.payload.password,
             }
         case LOGOUT_USER:
             return defaultState;
@@ -22,14 +24,23 @@ export default function userReducer(state = defaultState, action){
     }
 }
 
-export const setUserTokenAndLogin = (token, login) => ({
-    type: SET_USER_TOKEN_NAME,
+export const getTokenAC = ({login, password}) =>({
+    type: GET_USER_TOKEN,
     payload: {
-        token,
         login,
+        password
     }
 })
 
-export const logoutUser = () => ({
+export const setUserTokenAC = (token, login, password) => ({
+    type: SET_USER_TOKEN,
+    payload: {
+        token,
+        login,
+        password
+    }
+})
+
+export const logoutUserAC = () => ({
     type: LOGOUT_USER,
 });

@@ -22,8 +22,8 @@
   opacity: 0.1;
   position: absolute;
   z-index: -1;
-  -webkit-animation: line-text 10s linear 1s infinite;
-          animation: line-text 10s linear 1s infinite;
+  -webkit-animation: line-text 22s linear 1s infinite;
+          animation: line-text 22s linear 1s infinite;
 }
 @-webkit-keyframes line-text {
   from {
@@ -124,4 +124,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: 100%;
+}
+
+.accessories__title {
+  margin-top: 50px;
 }/*# sourceMappingURL=shop.module.css.map */

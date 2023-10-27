@@ -8,23 +8,24 @@ import { Provider } from "react-redux";
 import client from "./utils/client";
 import { ApolloProvider } from "@apollo/client";
 import getStore from "./components/redux";
+import { ToastContainer } from "react-toastify";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-export const store = getStore()
+export const store = getStore();
+
 
 root.render(
-  <ApolloProvider client={client}>
+  <ApolloProvider client={client} >
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter >
+        <ToastContainer />
         <App />
       </BrowserRouter>
     </Provider >
   </ApolloProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

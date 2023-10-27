@@ -4,13 +4,13 @@ import navNavigation from '../../utils/mainMenu';
 import  styles  from './header.module.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../redux/reducers/userReducer';
+import { logoutUserAC } from '../redux/reducers/userReducer';
 
 const Header = () => {
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.user.login);
     const logout = () => {
-        dispatch(logoutUser()); 
+        dispatch(logoutUserAC()); 
     }
     return (
         <header className={styles.header}>

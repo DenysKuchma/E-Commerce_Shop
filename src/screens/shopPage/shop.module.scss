@@ -24,7 +24,7 @@
         opacity: 0.1;
         position: absolute;
         z-index: -1;
-        animation: line-text 10s linear 1s infinite;
+        animation: line-text 22s linear 1s infinite;
     }
 
     @keyframes line-text {
@@ -126,4 +126,7 @@
             }
         }
     }
+}
+.accessories__title{
+    margin-top: 50px;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './games.module.css'
-const Game = () => {
+
+const GamesPage = () => {
     return (
         <section className={styles.game}>
             <div className="container">
@@ -39,4 +40,4 @@ const Game = () => {
     )
 }
 
-export default Game
+export default GamesPage

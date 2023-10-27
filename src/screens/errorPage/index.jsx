@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useRouteError } from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import styles from './errorPage.module.css'
 
 export default function ErrorPage() {

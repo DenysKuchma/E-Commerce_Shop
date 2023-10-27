@@ -2,14 +2,13 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer';
 import Header from './components/header';
-import ContactUsPage from './screens/contactUsPage';
-import ErrorPage from './screens/errorPage';
-import GamesPage from './screens/gamePage';
+import GamesPage from './screens/gamesPage';
 import HomePage from './screens/homePage';
 import LoginPage from './screens/loginPage';
 import MetavercePage from './screens/metaversePage';
 import ShopPage from './screens/shopPage';
-
+import ErrorPage from './screens/errorPage';
+import ContactUsPage from './screens/contactUsPage';
 
 
 const Layout = () => {
@@ -23,6 +22,7 @@ const Layout = () => {
     </>
   );
 };
+
 
 function App() {
   return(
