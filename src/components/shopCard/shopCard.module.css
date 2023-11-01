@@ -5,10 +5,13 @@
      border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
 }
 .accessories__item_img {
   margin-bottom: 10px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .accessories__item_title {
   font-size: 24px;
@@ -18,6 +21,7 @@
 }
 .accessories__item_text {
   margin-bottom: 35px;
+  overflow: hidden;
 }
 .accessories__item_price {
   font-weight: 700;

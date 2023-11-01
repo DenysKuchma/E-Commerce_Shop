@@ -7,11 +7,21 @@ import { useDispatch } from 'react-redux';
 import { logoutUserAC } from '../redux/reducers/userReducer';
 
 const Header = () => {
+    const cartProducts = useSelector((store) => store.cart.items);
+
     const dispatch = useDispatch();
     const userLogin = useSelector(state => state.user.login);
+
+    const getTotalItemCount = (cartItems) => {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
+    };
+    const totalItemCount = getTotalItemCount(cartProducts);
+
     const logout = () => {
         dispatch(logoutUserAC()); 
     }
+
+
     return (
         <header className={styles.header}>
             <div className='container'>
@@ -43,9 +53,9 @@ const Header = () => {
                                 <div>LOGIN</div>
                             </Link>
                         )}
-                        <Link to='/' className={`${styles.backet} ${styles.backet__on}`}>
+                        <Link to='/cart' className={`${styles.backet} ${styles.backet__on}`}>
                             <img src="images/backet.svg" alt="#"/>
-                            <span className={styles.backet__info}>0</span>
+                            <span className={styles.backet__info}>{totalItemCount}</span>
                         </Link>
                     </div>
                 </nav>

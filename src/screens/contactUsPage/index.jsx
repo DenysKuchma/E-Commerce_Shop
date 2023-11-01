@@ -18,7 +18,7 @@ const ContactUsPage = () => {
                             <br /> Your subscription is subject to the Terms and Privacy Policy.
                         </p>
                     </div>
-                    <a href="mailto:den.kuchma@gmail.com" className={styles.contacts__email}>oculusshop@gmail.com</a>
+                    <a href="mailto:den.kuchma@gmail.com" className={styles.contacts__email}>den.kuchma@gmail.com</a>
                 </div>
             </div>
         </section>

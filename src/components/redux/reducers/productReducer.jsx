@@ -18,7 +18,7 @@ export default function productReducer(state = defaultState, action) {
     }
 }
 
-export const getProductsAC = (limit = 4, skip = 0) => ({
+export const getProductsAC = (limit = 8, skip = 0) => ({
     type: GET_PRODUCTS,
     payload: {
         skip,

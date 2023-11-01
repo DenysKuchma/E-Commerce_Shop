@@ -9,6 +9,7 @@ import MetavercePage from './screens/metaversePage';
 import ShopPage from './screens/shopPage';
 import ErrorPage from './screens/errorPage';
 import ContactUsPage from './screens/contactUsPage';
+import CartPage from './screens/cartPage';
 
 
 const Layout = () => {
@@ -35,6 +36,7 @@ function App() {
           <Route path="metaverse" element={<MetavercePage />} />
           <Route path="contact" element={<ContactUsPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
   )

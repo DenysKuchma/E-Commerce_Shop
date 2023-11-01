@@ -4,10 +4,15 @@
     border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: end;
+
+
 
     &_img {
         margin-bottom: 10px;
+        width: 100%;
+
+        object-fit: cover;
     }
 
     &_title {
@@ -19,6 +24,7 @@
 
     &_text {
         margin-bottom: 35px;
+        overflow: hidden;
 
     }
 
