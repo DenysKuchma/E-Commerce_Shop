@@ -8,12 +8,28 @@ export const GET_TOKEN= gql`
 
 export const GET_GOODS = gql`
     query getGoods($query: String!) {
-        GoodFind(query: $query) {
+        CategoryFindOne(query: $query) {
             _id
             name
-            description
-            price
-            images {
+            goods {
+                _id
+                name
+                description
+                price
+                image {
+                    url
+                }
+            }
+        }
+    }
+`;
+
+export const GET_CATEGORY = gql`
+    query getCategory($query: String!){
+        CategoryFind(query: $query) {
+            _id
+            name
+            image {
                 url
             }
         }

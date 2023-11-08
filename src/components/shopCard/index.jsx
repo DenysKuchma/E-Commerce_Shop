@@ -4,14 +4,14 @@ import { addToCart } from '../redux/reducers/cartReducer';
 import { getProductsAC } from '../redux/reducers/productReducer'
 import styles from './shopCard.module.css'
 
-const ShopCards = () => {
+const ShopCards = ({ id: categoryId }) => {
     const products = useSelector(store => store.products.data)
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        dispatch(getProductsAC())
-    }, [])
+        dispatch(getProductsAC({ categoryId }));
+    }, [categoryId]);
 
     const getImageURL= (url) => 'http://shop-roles.node.ed.asmer.org.ua/' + url
 

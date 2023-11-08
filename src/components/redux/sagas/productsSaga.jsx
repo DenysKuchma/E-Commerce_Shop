@@ -11,23 +11,23 @@ function* getProducts(action) {
         const res = yield call(() => client.query({
             query: GET_GOODS,
             variables: {
-            query: JSON.stringify([
-                {},
-                {
-                limit: [action.payload.limit],
-                skip: [action.payload.skip]
-                },
-    
-            ])
+                query: JSON.stringify([
+                    { category: action.payload.categoryId },
+                    {
+                        limit: action.payload.limit,
+                        skip: action.payload.skip
+                    }
+                ])
             }
         }))
-        yield put(setProductsAC({ data: res.data.GoodFind }));
-        yield call(toast.success, `LOADED ${res.data.GoodFind.length} SECRET ITEMS`);
+
+        yield put(setProductsAC(res.data.CategoryFindOne.goods, action.payload.categoryId));
+        yield call(toast.success, `LOADED ${res.data.CategoryFindOne.goods.length} SECRET ITEMS`);
     } catch (error) {
         yield call(toast.warn, "ERROR WITH GETTING GOODS");
     }
 }
 
-export function* productsSaga(){
-    yield takeEvery(GET_PRODUCTS, getProducts)
+export function* productsSaga() {
+    yield takeEvery(GET_PRODUCTS, getProducts);
 }
