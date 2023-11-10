@@ -10,7 +10,9 @@ import ShopPage from './screens/shopPage';
 import ErrorPage from './screens/errorPage';
 import ContactUsPage from './screens/contactUsPage';
 import CartPage from './screens/cartPage';
-import CategoryPage from './screens/categoryPage';
+import ProductsPage from './screens/productsPage';
+import AllProdutsPage from './screens/allProductsPage';
+import OneProductPage from './screens/oneProductPage';
 
 
 const Layout = () => {
@@ -33,7 +35,9 @@ function App() {
           <Route path='*' element={<ErrorPage />}/>
           <Route path="/" element={<HomePage />} />
           <Route path="shop" element={<ShopPage />}/>
-          <Route path="shop/:id" element={<CategoryPage />} />
+          <Route path="shop/category/:id" element={<ProductsPage />} />
+          <Route path="shop/allproducts" element={<AllProdutsPage />} />
+          <Route path="shop/product/:productId" element={<OneProductPage />} />
           <Route path="games" element={<GamesPage />} /> 
           <Route path="metaverse" element={<MetavercePage />} />
           <Route path="contact" element={<ContactUsPage />} />

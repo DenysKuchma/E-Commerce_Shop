@@ -1,10 +1,17 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .accessories__item {
   border: 1px solid;
   -o-border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
      border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
-  margin: 10px;
-  padding: 10px;
-  width: calc(33.33% - 20px);
+  margin: 40px;
+  padding: 40px;
+  width: calc(33.33% - 80px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -63,4 +70,27 @@
   background: var(--gradient, linear-gradient(180deg, #570d66 0%, rgba(80, 0, 250, 0.93) 150%));
   -webkit-background-clip: text;
           background-clip: text;
-}/*# sourceMappingURL=shopCard.module.css.map */
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.pagination button {
+  background-color: #917496;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination button.active {
+  background-color: #BC10D8;
+}/*# sourceMappingURL=allProductsPage.module.css.map */

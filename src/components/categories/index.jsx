@@ -31,7 +31,7 @@ const Categories = () => {
                     alt="Category"
                 />
                 <h3 className={styles.categoriesCardTitle}>{item.name}</h3>
-                <button className={styles.categoriesCardButton} onClick={() => navigate(`/shop/${item._id}`, { state: { categoryId: item._id } })}>Перейти</button>
+                <button className={styles.categoriesCardButton} onClick={() => navigate(`/shop/category/${item._id}`, { state: { categoryId: item._id } })}>Перейти</button>
             </div>
             ))}
 

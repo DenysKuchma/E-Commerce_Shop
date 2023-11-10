@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ShopCards from '../../components/shopCard';
-import styles from './category.module.css';
+import styles from './productsPage.module.css';
 
-const CategoryPage = () => {
+const ProductsPage = () => {
     const location = useLocation();
     const categoryId = location.state?.categoryId;
     const [currentCategory, setCurrentCategory] = useState(null);
@@ -34,13 +34,18 @@ const CategoryPage = () => {
                             <li>
                                 <button
                                     className={styles.categoriesCardButton}
-                                    onClick={() => navigate(`/shop/${item._id}`, { state: { categoryId: item._id } })
+                                    onClick={() => navigate(`/shop/category/${item._id}`, { state: { categoryId: item._id } })
                                 }>
-                                    {item._id === currentCategory?._id ? "Current Category" : item.name}
+                                    {item._id === currentCategory?._id ? item.name + " - Current Category" : item.name}
                                 </button>
                             </li>
                         </ul>
                     ))}
+                        <button 
+                            className={`${styles.categoriesCardButton} ${styles.allProducts}`}
+                            onClick={() => navigate(`/shop/allproducts`)}>
+                                All products
+                        </button>
                 </div>
                 <div className={styles.main_card_page}>
                     <ShopCards id={categoryId} />
@@ -50,4 +55,4 @@ const CategoryPage = () => {
     );
 }
 
-export default CategoryPage;
+export default ProductsPage;

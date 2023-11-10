@@ -20,23 +20,23 @@ const Footer = () => {
                     <Link to='/' className={styles.logo}>
                         <img src="images/logo.svg" alt=""/>
                     </Link>
-                    <Link to='/' className={styles.social}>
-                    <li className={styles.social__item}>
-                        <Link to='/' className={styles.social__link}>
-                        <img src="images/yt.svg" alt=""/>
-                        </Link>
-                    </li>
-                    <li className={styles.social__item}>
-                        <Link to='/' className={styles.social__link}>
-                        <img src="images/fs.svg" alt=""/>
-                        </Link>
-                    </li>
-                    <li className={styles.social__item}>
-                        <Link to='/' className={styles.social__link}>
-                        <img src="images/inst.svg" alt=""/>
-                        </Link>
-                    </li>
-                    </Link>
+                    <div  className={styles.social}>
+                        <li className={styles.social__item}>
+                            <Link to='/' className={styles.social__link}>
+                            <img src="images/yt.svg" alt=""/>
+                            </Link>
+                        </li>
+                        <li className={styles.social__item}>
+                            <Link to='/' className={styles.social__link}>
+                            <img src="images/fs.svg" alt=""/>
+                            </Link>
+                        </li>
+                        <li className={styles.social__item}>
+                            <Link to='/' className={styles.social__link}>
+                            <img src="images/inst.svg" alt=""/>
+                            </Link>
+                        </li>
+                    </div>
                 </nav>
             </div>
         </footer>

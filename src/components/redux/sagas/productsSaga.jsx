@@ -12,17 +12,14 @@ function* getProducts(action) {
             query: GET_GOODS,
             variables: {
                 query: JSON.stringify([
-                    { category: action.payload.categoryId },
-                    {
-                        limit: action.payload.limit,
-                        skip: action.payload.skip
-                    }
+                    { "_id": action.payload.categoryId },
+                    {},
                 ])
             }
         }))
-
-        yield put(setProductsAC(res.data.CategoryFindOne.goods, action.payload.categoryId));
-        yield call(toast.success, `LOADED ${res.data.CategoryFindOne.goods.length} SECRET ITEMS`);
+        console.log(res)
+        yield put(setProductsAC({data: res.data.CategoryFindOne.goods}));
+        yield call(toast.success, `LOADED ${res.data.CategoryFindOne.goods.length} GOODS`);
     } catch (error) {
         yield call(toast.warn, "ERROR WITH GETTING GOODS");
     }

@@ -1,10 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Categories from '../../components/categories'
-import { getCategotysAC } from '../../components/redux/reducers/categoryReducer'
-import ShopCards from '../../components/shopCard'
 import styles from './shop.module.css'
 
 

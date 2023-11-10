@@ -1,0 +1,78 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .side {
+        width: 30%;
+        padding: 20px;
+        background-color: #f5f5f5;
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .categoriesCardButton {
+            background-color: transparent;
+            border: none;
+            padding: 5px 0;
+            cursor: pointer;
+            font-size: large;
+            color:  #6e157c;
+
+            &:hover {
+                background-color: #e0e0e0;
+            }
+        }
+        .allProducts{
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    }
+
+    .main_card_page {
+        width: 70%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .accessories__item {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            width: calc(33.33% - 20px); 
+            box-sizing: border-box;
+
+            .accessories__item_img {
+                width: 100%;
+                height: auto;
+            }
+
+            .accessories__item_title {
+                font-size: 1.2rem;
+                margin-top: 10px;
+            }
+
+            .accessories__item_price {
+                margin-top: 5px;
+            }
+
+            .accessories__item_btn {
+                margin-top: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .accessories__item {
+                width: calc(50% - 20px); 
+            }
+        }
+    }
+}
