@@ -11,12 +11,12 @@
   display: flex;
   flex-direction: column;
 }
-.cartItem .accessories__item_title {
+.cartItem .card__itemtitle {
   font-size: 18px;
   color: #333;
   margin: 0;
 }
-.cartItem .accessories__item_price {
+.cartItem .card__itemprice {
   font-size: 14px;
   color: #777;
 }
@@ -47,7 +47,7 @@
   font-size: 18px;
   margin-top: 20px;
 }
-.totalPrice .accessories__item_price {
+.totalPrice .card__itemprice {
   color: #333;
 }
 

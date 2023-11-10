@@ -17,7 +17,7 @@ function* getProducts(action) {
                 ])
             }
         }))
-        console.log(res)
+
         yield put(setProductsAC({data: res.data.CategoryFindOne.goods}));
         yield call(toast.success, `LOADED ${res.data.CategoryFindOne.goods.length} GOODS`);
     } catch (error) {

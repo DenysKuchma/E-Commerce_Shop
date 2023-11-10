@@ -36,8 +36,8 @@ const CartPage = () => {
                     {cartProducts.length > 0 && cartProducts.map((item, index) => (
                         <div key={index} className={styles.cartItem}>
                             <div className={styles.itemInfo}>
-                                <h3 className={styles.accessories__item_title}>{item.name}</h3>
-                                <p className={styles.accessories__item_price}>${item.price} USD</p>
+                                <h3 className={styles.card__item}>{item.name}</h3>
+                                <p className={styles.card__itemprice}>${item.price} USD</p>
                                 <div className={styles.quantity}>
                                     Quantity: {item.quantity}
                                     <button onClick={() => handleRemoveOneFromCart(item._id)}>-</button>

@@ -12,13 +12,13 @@
         flex-direction: column;
     }
 
-    .accessories__item_title {
+    .card__itemtitle {
         font-size: 18px;
         color: #333;
         margin: 0;
     }
 
-    .accessories__item_price {
+    .card__itemprice {
         font-size: 14px;
         color: #777;
     }
@@ -54,7 +54,7 @@
     font-size: 18px;
     margin-top: 20px;
 
-    .accessories__item_price {
+    .card__itemprice {
         color: #333;
     }
 }

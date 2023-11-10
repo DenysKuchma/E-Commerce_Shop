@@ -57,12 +57,12 @@ const AllProdutsPage = () => {
     return (
         <div className={styles.wrapper}>
             {filteredAllProducts?.length > 0 && filteredAllProducts?.map((item, index) =>
-                <div key={index} className={styles.accessories__item}>
-                    <img className={styles.accessories__item_img} src={getImageURL(item.images[0].url)} alt="oops" onClick={() => goToProductPage(item._id)} />
-                    <h3 className={styles.accessories__item_title} onClick={() => goToProductPage(item._id)}>{item.name}</h3>
-                    <p className={styles.accessories__item_price}>${item.price} USD</p>
-                    <button className={styles.accessories__item_btn} onClick={() => handleAddToCart(item)}>BUY NOW</button>
-                    <button className={styles.accessories__item_btn_two} onClick={() => goToProductPage(item._id)}>DETAILS</button>
+                <div key={index} className={styles.card__item}>
+                    <img className={styles.card__item_img} src={getImageURL(item.images[0].url)} alt="oops" onClick={() => goToProductPage(item._id)} />
+                    <h3 className={styles.card__item_title} onClick={() => goToProductPage(item._id)}>{item.name}</h3>
+                    <p className={styles.card__item_price}>${item.price} USD</p>
+                    <button className={styles.card__item_btn} onClick={() => handleAddToCart(item)}>BUY NOW</button>
+                    <button className={styles.card__item_btn_two} onClick={() => goToProductPage(item._id)}>DETAILS</button>
                 </div>
             )}
 

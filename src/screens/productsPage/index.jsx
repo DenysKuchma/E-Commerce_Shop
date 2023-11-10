@@ -34,8 +34,8 @@ const ProductsPage = () => {
                             <li>
                                 <button
                                     className={styles.categoriesCardButton}
-                                    onClick={() => navigate(`/shop/category/${item._id}`, { state: { categoryId: item._id } })
-                                }>
+                                    onClick={() => navigate(`/shop/category/${item._id}`, { state: { categoryId: item._id } })}
+                                    style={{ color: item._id === currentCategory?._id ? 'red' : 'black' }}>
                                     {item._id === currentCategory?._id ? item.name + " - Current Category" : item.name}
                                 </button>
                             </li>

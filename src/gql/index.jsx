@@ -25,7 +25,6 @@ export const GET_GOODS = gql`
             goods {
                 _id
                 name
-                description
                 price
                 images {
                     url
@@ -40,7 +39,6 @@ export const GET_ALL_GOODS = gql`
         GoodFind(query: $query) {
             _id
             name
-            description
             price
             images {
                 url
@@ -56,7 +54,7 @@ export const GET_ONE_GOOD = gql`
             name
             description
             price
-            image {
+            images {
                 url
             }
         }

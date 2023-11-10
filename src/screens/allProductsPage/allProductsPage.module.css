@@ -5,7 +5,7 @@
   justify-content: space-between;
 }
 
-.accessories__item {
+.card__item {
   border: 1px solid;
   -o-border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
      border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
@@ -16,26 +16,26 @@
   display: flex;
   flex-direction: column;
 }
-.accessories__item .accessories__item_img {
+.card__item .card__item_img {
   width: 100%;
   max-height: 500px;
   margin: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.accessories__item .accessories__item_content {
+.card__item .card__item_content {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.accessories__item .accessories__item_title {
+.card__item .card__item_title {
   font-size: 1.2rem;
   margin-top: 10px;
 }
-.accessories__item .accessories__item_price {
+.card__item .card__item_price {
   margin-top: 5px;
 }
-.accessories__item .accessories__item_btn {
+.card__item .card__item_btn {
   margin-top: 10px;
   border: 1px solid;
   -o-border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
@@ -48,12 +48,12 @@
   padding: 10px;
   cursor: pointer;
 }
-.accessories__item .accessories__item_btn:hover {
+.card__item .card__item_btn:hover {
   background: var(--gradient, linear-gradient(180deg, #570d66 0%, rgba(80, 0, 250, 0.93) 150%));
   -webkit-background-clip: text;
           background-clip: text;
 }
-.accessories__item .accessories__item_btn_two {
+.card__item .card__item_btn_two {
   margin-top: 10px;
   border: 1px solid;
   -o-border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
@@ -66,7 +66,7 @@
   padding: 10px;
   cursor: pointer;
 }
-.accessories__item .accessories__item_btn_two:hover {
+.card__item .card__item_btn_two:hover {
   background: var(--gradient, linear-gradient(180deg, #570d66 0%, rgba(80, 0, 250, 0.93) 150%));
   -webkit-background-clip: text;
           background-clip: text;
@@ -84,7 +84,8 @@
 .pagination button {
   background-color: #917496;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 10px;
+  width: 50px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
