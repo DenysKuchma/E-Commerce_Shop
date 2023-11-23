@@ -19,9 +19,15 @@ function* getOneProduct(action) {
         }))
 
         yield put(setOneProductsAC({data: res.data.GoodFindOne}));
-        yield call(toast.success, `LOADED GOOD`);
+        toast.success(`LOADED GOOD`, {
+            position: "top-right",
+            autoClose: 2000,
+        });
     } catch (error) {
-        yield call(toast.warn, "ERROR WITH GETTING GOOD");
+        toast.warn("ERROR WITH GETTING GOOD", {
+            position: "top-right",
+            autoClose: 2000,
+        });
     }
 }
 

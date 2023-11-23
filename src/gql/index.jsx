@@ -5,6 +5,17 @@ export const GET_TOKEN= gql`
         login(login: $login, password: $password)
 }`;
 
+export const CREATE_NEW_USER = gql`
+    mutation UserUpsert($user: UserInput) {
+        UserUpsert(user: $user) {
+            _id
+            createdAt
+            login
+            nick
+        }
+    }
+`;
+
 export const GET_CATEGORY = gql`
     query getCategory($query: String!){
         CategoryFind(query: $query) {

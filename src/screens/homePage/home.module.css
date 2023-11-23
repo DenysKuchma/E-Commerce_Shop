@@ -140,4 +140,46 @@
 .video span {
   font-size: 13;
   color: #f6f3f5;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 66px;
+  }
+  .subtitel {
+    font-size: 24px;
+  }
+  .home_title {
+    font-size: 80px !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  .top {
+    text-align: center;
+  }
+  .buy_btn {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .buy_btn__price {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .top {
+    text-align: center;
+  }
+  .title {
+    font-size: 48px;
+  }
+  .home_title {
+    font-size: 60px !important;
+  }
+  .subtitel {
+    font-size: 20px;
+  }
+  .buy_btn {
+    flex-direction: column;
+    margin: 0 auto;
+  }
 }/*# sourceMappingURL=home.module.css.map */

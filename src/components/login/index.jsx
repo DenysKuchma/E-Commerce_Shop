@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styles from './login.module.css'
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getTokenAC } from '../../components/redux/reducers/userReducer';
+import { getTokenAC } from '../redux/reducers/userReducer';
 
-
-
-
-const LoginPage = () => {
+const Login = () => {
 
     const navigation = useNavigate();
     const user = useSelector(state => state.user)
@@ -35,10 +31,6 @@ const LoginPage = () => {
         }
     }, [user.token, navigation]);
 
-
-
-
-
     return (
         <div className={styles.login_container}>
             <h2>Login</h2>
@@ -57,4 +49,4 @@ const LoginPage = () => {
     );
 }
 
-export default LoginPage
+export default Login

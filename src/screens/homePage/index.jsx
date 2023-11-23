@@ -51,11 +51,6 @@ const HomePage = () => {
                         <button className={`${styles.tabs__btn_item} ${activeContent === 'content-6' ? styles['tabs__btn_item--active'] : ''}`} onClick={() => handleTabClick('content-6')}>
                             06 Headset casting
                         </button>
-                        {/* <button className={styles["tabs__btn-item"]} data-button="content-2">02 Controls</button>
-                        <button className={styles["tabs__btn-item"]} data-button="content-3">03 Processor</button>
-                        <button className={styles["tabs__btn-item"]} data-button="content-4">04 Set up your play area</button>
-                        <button className={styles["tabs__btn-item"]} data-button="content-5">05 Guardian activity</button>
-                        <button className={styles["tabs__btn-item"]} data-button="content-6">06 Headset casting</button> */}
                     </div>
                     <div className={styles.tabs__content}>
                         <div className={`${styles['tabs__content-item']} ${activeContent === 'content-1' ? styles['tabs__content-item--active'] : ''}`} id="content-1">

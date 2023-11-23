@@ -19,9 +19,15 @@ function* getProducts(action) {
         }))
 
         yield put(setProductsAC({data: res.data.CategoryFindOne.goods}));
-        yield call(toast.success, `LOADED ${res.data.CategoryFindOne.goods.length} GOODS`);
+        toast.success(`LOADED ${res.data.CategoryFindOne.goods.length} GOODS`, {
+            position: "top-right",
+            autoClose: 2000,
+        })
     } catch (error) {
-        yield call(toast.warn, "ERROR WITH GETTING GOODS");
+        toast.warn("ERROR WITH GETTING GOODS", {
+            position: "top-right",
+            autoClose: 2000,
+        })
     }
 }
 

@@ -52,18 +52,23 @@ export default function cartReducer(state = defaultState, action) {
             };
         case UPDATE_QUANTITY:
             const { id, quantity } = action.payload;
-            const updatedItem = state.items.map((item) => {
+            const updatedItem = state.items.map(item => {
                 if (item._id === id) {
                     const newQuantity = item.quantity + quantity;
-                    const newTotalPrice = newQuantity * item.price;
-                    return { ...item, quantity: newQuantity, totalPrice: newTotalPrice };
+                    if (newQuantity >= 0) {
+                        const newTotalPrice = newQuantity * item.price;
+                        return { ...item, quantity: newQuantity, totalPrice: newTotalPrice };
+                    } else {
+                        return { ...item, quantity: 0, totalPrice: 0 };
+                    }
                 }
                 return item;
             });
+            const filteredItems = updatedItem.filter(item => item.quantity > 0); 
             return {
                 ...state,
-                items: updatedItem,
-            };    
+                items: filteredItems,
+            };   
         default:
             return state;
     }

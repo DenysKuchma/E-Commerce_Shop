@@ -36,7 +36,9 @@ const CartPage = () => {
                     {cartProducts.length > 0 && cartProducts.map((item, index) => (
                         <div key={index} className={styles.cartItem}>
                             <div className={styles.itemInfo}>
-                                <h3 className={styles.card__item}>{item.name}</h3>
+                                <Link to={`/shop/product/${item._id}`}>
+                                    <h3 className={styles.card__item}>{item.name}</h3>
+                                </Link>
                                 <p className={styles.card__itemprice}>${item.price} USD</p>
                                 <div className={styles.quantity}>
                                     Quantity: {item.quantity}

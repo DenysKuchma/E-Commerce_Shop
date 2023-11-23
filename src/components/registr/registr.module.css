@@ -1,0 +1,46 @@
+.registr_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.registr_container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.registr_container form {
+  width: 100%;
+}
+.registr_container form .input_group {
+  margin-bottom: 15px;
+}
+.registr_container form .input_group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.registr_container form .input_group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.registr_container form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.registr_container form button:hover {
+  background-color: #0056b3;
+}/*# sourceMappingURL=registrPage.module.css.map */

@@ -31,9 +31,32 @@
 .footer .logo {
   justify-self: center;
   display: flex;
+  margin: 0 10px;
 }
 .footer .social {
   display: flex;
   gap: 20px;
   justify-self: end;
+}
+
+@media screen and (max-width: 1140px) {
+  .footer .menu {
+    display: none;
+  }
+  .footer .nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 420px) {
+  .footer .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    height: auto;
+  }
+  .social {
+    order: -1;
+  }
 }/*# sourceMappingURL=footer.module.css.map */

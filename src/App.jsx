@@ -4,7 +4,6 @@ import Footer from './components/footer';
 import Header from './components/header';
 import GamesPage from './screens/gamesPage';
 import HomePage from './screens/homePage';
-import LoginPage from './screens/loginPage';
 import MetavercePage from './screens/metaversePage';
 import ShopPage from './screens/shopPage';
 import ErrorPage from './screens/errorPage';
@@ -13,6 +12,7 @@ import CartPage from './screens/cartPage';
 import ProductsPage from './screens/productsPage';
 import AllProdutsPage from './screens/allProductsPage';
 import OneProductPage from './screens/oneProductPage';
+import AuthPage from './screens/authPage';
 
 
 const Layout = () => {
@@ -41,7 +41,7 @@ function App() {
           <Route path="games" element={<GamesPage />} /> 
           <Route path="metaverse" element={<MetavercePage />} />
           <Route path="contact" element={<ContactUsPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route path="auth" element={<AuthPage />} />
           <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>

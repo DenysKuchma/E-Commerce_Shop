@@ -21,9 +21,15 @@ function* getCategory(action) {
             }
         }));
         yield put(setCategotysAC({data: res.data.CategoryFind}));
-        yield call(toast.success, `LOADED CATEGORIES`)
+        toast.success("LOADED CATEGORIES", {
+            position: "top-right",
+            autoClose: 2000,
+        })
     } catch (error) {
-        yield call(toast.warn, "ERROR WITH GETTING CATEGORIES");
+        toast.warn("ERROR WITH GETTING CATEGORIES", {
+            position: "top-right",
+            autoClose: 2000,
+        })
     }
 }
 

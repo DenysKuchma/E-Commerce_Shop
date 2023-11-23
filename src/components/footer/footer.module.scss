@@ -1,4 +1,4 @@
-.footer{
+.footer {
     border-top: 1px solid #cacad6;
     border-bottom: 1px solid #cacad6;
     margin-bottom: 44px;
@@ -10,37 +10,62 @@
         align-items: center;
         height: 80px;
     }
-    
+
     .menu_btn {
         width: 40px;
         height: 30px;
         display: none;
         flex-direction: column;
         justify-content: space-between;
-    
+
         span {
             height: 2px;
             background-color: #070707;
             width: 100%;
         }
     }
-    
+
     .menu {
         display: flex;
         gap: 0 20px;
         padding: 0px;
         justify-self: start;
     }
-    
+
     .logo {
         justify-self: center;
         display: flex;
+        margin: 0 10px;
     }
-    
-    .social{
+
+    .social {
         display: flex;
         gap: 20px;
         justify-self: end;
     }
 }
 
+@media screen and (max-width: 1140px) {
+    .footer .menu {
+        display: none;
+    }
+
+    .footer .nav {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .footer .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        height: auto;
+    }
+
+    .social {
+        order: -1;
+    }
+}
