@@ -21,10 +21,6 @@ function* getAllProducts(action) {
             }
         }))
         yield put(setAllProductsAC({ data: res.data.GoodFind }));
-        toast.success(`LOADED ${res.data.GoodFind.length} ITEMS`, {
-            position: "top-right",
-            autoClose: 2000,
-        });
     } catch (error) {
         toast.error('ERROR WITH GETTING ITEMS', {
             position: "top-right",

@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './allProductsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsAC } from '../../components/redux/reducers/allProductReducer';
 import { addToCart } from '../../components/redux/reducers/cartReducer';
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 const AllProdutsPage = () => {
     const allProducts = useSelector(store => store.allProducts.data);
+    const [searchQuery, setSearchQuery] = useState('');
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 12;
@@ -20,13 +22,17 @@ const AllProdutsPage = () => {
     const handleAddToCart = (item) => dispatch(addToCart(item));
 
     const updateProducts = useCallback((page) => {
-        dispatch(getAllProductsAC(6, (page - 1) * 6));
-    }, [dispatch]); 
+        if (searchQuery) {
+            dispatch(getAllProductsAC(100, 0, searchQuery));
+        } else {
+            dispatch(getAllProductsAC(6, (page - 1) * 6));
+        }
+    }, [dispatch, searchQuery]);
 
     useEffect(() => {
         updateProducts(currentPage);
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage, updateProducts]);
+    }, [currentPage, searchQuery, updateProducts]);
 
     const goToPage = (page) => {
         setCurrentPage(page);
@@ -51,11 +57,25 @@ const AllProdutsPage = () => {
     if (!allProducts) {
         return null;
     }
-
-    const filteredAllProducts = allProducts.filter((item) => item.images && item.images[0] && item.images[0].url !== null);
+    const filteredAllProductsIMG = allProducts.filter((item) => item.images && item.images[0] && item.images[0].url !== null);
+    const filteredAllProducts = searchQuery
+        ? filteredAllProductsIMG.filter(product =>
+            product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        : filteredAllProductsIMG;
+    
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.searchContainer}>
+                <input
+                    type="text"
+                    placeholder="Пошук товарів..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className={styles.searchInput}
+                />
+            </div>
             {filteredAllProducts?.length > 0 && filteredAllProducts?.map((item, index) =>
                 <div key={index} className={styles.card__item}>
                     <img className={styles.card__item_img} src={getImageURL(item.images[0].url)} alt="oops" onClick={() => goToProductPage(item._id)} />
@@ -65,8 +85,7 @@ const AllProdutsPage = () => {
                     <button className={styles.card__item_btn_two} onClick={() => goToProductPage(item._id)}>DETAILS</button>
                 </div>
             )}
-
-        <div className={styles.pagination}>
+            { !searchQuery && <div className={styles.pagination}>
                 <button onClick={goToFirstPage}>{'<<'}</button>
                 <button onClick={goToPrevPage} disabled={currentPage === 1}>{'<'}</button>
                 {[...Array(totalPages)].map((_, index) => (
@@ -80,7 +99,7 @@ const AllProdutsPage = () => {
                 ))}
                 <button onClick={goToNextPage} disabled={currentPage === totalPages}>{'>'}</button>
                 <button onClick={goToLastPage}>{'>>'}</button>
-            </div>
+            </div>}
         </div>
     );
 };
