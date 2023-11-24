@@ -9,6 +9,7 @@ import { useCallback } from 'react';
 const AllProdutsPage = () => {
     const allProducts = useSelector(store => store.allProducts.data);
     const [searchQuery, setSearchQuery] = useState('');
+    const [sortType, setSortType] = useState('default');
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 12;
@@ -22,17 +23,17 @@ const AllProdutsPage = () => {
     const handleAddToCart = (item) => dispatch(addToCart(item));
 
     const updateProducts = useCallback((page) => {
-        if (searchQuery) {
+        if (searchQuery || sortType !== 'default') {
             dispatch(getAllProductsAC(100, 0, searchQuery));
         } else {
             dispatch(getAllProductsAC(6, (page - 1) * 6));
         }
-    }, [dispatch, searchQuery]);
+    }, [dispatch, searchQuery, sortType]);
 
     useEffect(() => {
         updateProducts(currentPage);
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage, searchQuery, updateProducts]);
+    }, [currentPage, searchQuery, updateProducts, sortType]);
 
     const goToPage = (page) => {
         setCurrentPage(page);
@@ -63,11 +64,32 @@ const AllProdutsPage = () => {
             product.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
         : filteredAllProductsIMG;
-    
+
+    const sortProducts = (products, sortType) => {
+        switch (sortType) {
+            case 'priceHighToLow':
+                return [...products].sort((a, b) => b.price - a.price);
+            case 'priceLowToHigh':
+                return [...products].sort((a, b) => a.price - b.price);
+            case 'alphabetical':
+                return [...products].sort((a, b) => a.name.localeCompare(b.name));
+            default:
+                return products;
+        }
+    }
+    const sortedProducts = sortProducts(filteredAllProducts, sortType);
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.searchContainer}>
+                <div className={styles.sortContainer}>
+                    <select value={sortType} onChange={(e) => setSortType(e.target.value)}>
+                        <option value="default">Default</option>
+                        <option value="priceHighToLow">Price: High to Low</option>
+                        <option value="priceLowToHigh">Price: Low to High</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
                 <input
                     type="text"
                     placeholder="Пошук товарів..."
@@ -76,7 +98,7 @@ const AllProdutsPage = () => {
                     className={styles.searchInput}
                 />
             </div>
-            {filteredAllProducts?.length > 0 && filteredAllProducts?.map((item, index) =>
+            {sortedProducts?.length > 0 && sortedProducts?.map((item, index) =>
                 <div key={index} className={styles.card__item}>
                     <img className={styles.card__item_img} src={getImageURL(item.images[0].url)} alt="oops" onClick={() => goToProductPage(item._id)} />
                     <h3 className={styles.card__item_title} onClick={() => goToProductPage(item._id)}>{item.name}</h3>
@@ -85,7 +107,7 @@ const AllProdutsPage = () => {
                     <button className={styles.card__item_btn_two} onClick={() => goToProductPage(item._id)}>DETAILS</button>
                 </div>
             )}
-            { !searchQuery && <div className={styles.pagination}>
+            { !searchQuery && sortType === 'default' && <div className={styles.pagination}>
                 <button onClick={goToFirstPage}>{'<<'}</button>
                 <button onClick={goToPrevPage} disabled={currentPage === 1}>{'<'}</button>
                 {[...Array(totalPages)].map((_, index) => (
