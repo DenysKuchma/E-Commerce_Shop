@@ -2,7 +2,7 @@ export const GET_CATEGORYS = 'GET_CATEGORY'
 export const SET_CATEGORYS = 'SET_CATEGORY'
 
 const defaultState = {
-    data: '',
+    data: [],
 }
 
 

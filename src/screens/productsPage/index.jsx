@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getCategotysAC } from '../../components/redux/reducers/categoryReducer';
 import SaleSlider from '../../components/saleSlider';
 import ShopCards from '../../components/shopCard';
 import styles from './productsPage.module.css';
@@ -10,7 +11,11 @@ const ProductsPage = () => {
     const categoryId = location.state?.categoryId;
     const [currentCategory, setCurrentCategory] = useState(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const categories = useSelector((store) => store.category.data);
+    useEffect(() => {
+        dispatch(getCategotysAC());
+    }, [dispatch]);
 
     useEffect(() => {
         if (categories && categoryId) {
@@ -18,6 +23,14 @@ const ProductsPage = () => {
             setCurrentCategory(currentCategory);
         }
     }, [categoryId, categories]);
+
+    if (!Array.isArray(categories)) {
+        return <div>Loading...</div>; 
+    }
+
+
+    const saleCategory = categories.find(category => category.name === 'Sale');
+    const saleCategoryId = saleCategory ? saleCategory._id : null;
 
     if (!categories) {
         return null;
@@ -30,7 +43,7 @@ const ProductsPage = () => {
             <div className={styles.wrapper}>
                 <div className={styles.side}>
                     <h2>Another category</h2>
-                    {filteredCategories.length > 0 && filteredCategories?.map((item, index) => (
+                    {filteredCategories.length > 0 && filteredCategories.map((item, index) => (
                         <ul key={index}>
                             <li>
                                 <button
@@ -50,7 +63,7 @@ const ProductsPage = () => {
                 </div>
                 <div className={styles.main_card_page}>
                     <div className={styles.slider}>
-                        <SaleSlider />
+                        {saleCategoryId ? <SaleSlider saleCategoryId={saleCategoryId} /> : <div>Loading...</div>}
                     </div>
                     <h2 className={styles.title}> {currentCategory ? currentCategory.name : 'Loading...'}</h2> 
                     <div className={styles.card}>

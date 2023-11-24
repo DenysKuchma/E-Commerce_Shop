@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSaleProductsAC } from '../redux/reducers/productReducer';
 import { Slide } from "react-slideshow-image";
 import "../../../node_modules/react-slideshow-image/dist/styles.css";
-import styles from "./saleSlider.module.css"
+import styles from "./saleSlider.module.css";
 import { useNavigate } from 'react-router-dom';
-
 
 const spanStyle = {
     padding: '20px',
@@ -24,34 +23,31 @@ const divStyle = {
     height: '400px' 
 };
 
-const SaleSlider = () => {
+const SaleSlider = ({ saleCategoryId }) => {
     const dispatch = useDispatch();
-    const categories = useSelector((store) => store.category.data);
     const navigate = useNavigate();
-    const saleCategory = categories.find(category => category.name === 'Sale');
-    const saleCategoryId = saleCategory ? saleCategory._id : null;
     const saleProducts = useSelector(store => store.products.saleData);
+    const isSaleProductsLoaded = saleProducts.length > 0; 
 
     useEffect(() => {
-        if (saleCategoryId) {
+        if (saleCategoryId && !isSaleProductsLoaded) {
             dispatch(getSaleProductsAC(saleCategoryId));
         }
-    }, [saleCategoryId, dispatch]);
+    }, [saleCategoryId, dispatch, isSaleProductsLoaded]);
 
     const goToProductPage = (productId) => {
         navigate(`/shop/product/${productId}`);
     };
-    
 
+    if (!isSaleProductsLoaded) {
+        return <div>Loading Sale Products...</div>;
+    }
     const slideImages = saleProducts.map(product => ({
         url: 'http://shop-roles.node.ed.asmer.org.ua/' + product.images[0].url,
         caption: product.name,
         id: product._id
     }));
     
-
-
-
     return (
         <>
             <h2 className={styles.title}>Sale</h2>

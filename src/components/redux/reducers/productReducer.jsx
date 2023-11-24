@@ -18,7 +18,8 @@ export default function productReducer(state = defaultState, action) {
         case SET_SALE_PRODUCTS:
             return{
                 ...state,
-                saleData: action.payload.saleData
+                saleData: action.payload.saleData,
+                isSaleDataLoaded: true
             }
         default:
             return state
