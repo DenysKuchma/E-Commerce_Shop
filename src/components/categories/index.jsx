@@ -11,7 +11,7 @@ const Categories = () => {
 
     useEffect(() => {
         dispatch(getCategotysAC());
-    }, []);
+    }, [dispatch]);
 
     if (!categories) {
         return null;

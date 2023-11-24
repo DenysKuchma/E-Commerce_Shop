@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './allProductsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsAC } from '../../components/redux/reducers/allProductReducer';
@@ -19,14 +19,14 @@ const AllProdutsPage = () => {
     const getImageURL = (url) => 'http://shop-roles.node.ed.asmer.org.ua/' + url;
     const handleAddToCart = (item) => dispatch(addToCart(item));
 
-    const updateProducts = (page) => {
+    const updateProducts = useCallback((page) => {
         dispatch(getAllProductsAC(6, (page - 1) * 6));
-    };
+    }, [dispatch]); 
 
     useEffect(() => {
         updateProducts(currentPage);
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage]);
+    }, [currentPage, updateProducts]);
 
     const goToPage = (page) => {
         setCurrentPage(page);

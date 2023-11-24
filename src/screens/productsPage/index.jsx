@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SaleSlider from '../../components/saleSlider';
 import ShopCards from '../../components/shopCard';
 import styles from './productsPage.module.css';
 
@@ -48,7 +49,13 @@ const ProductsPage = () => {
                         </button>
                 </div>
                 <div className={styles.main_card_page}>
-                    <ShopCards id={categoryId} />
+                    <div className={styles.slider}>
+                        <SaleSlider />
+                    </div>
+                    <h2 className={styles.title}> {currentCategory ? currentCategory.name : 'Loading...'}</h2> 
+                    <div className={styles.card}>
+                        <ShopCards id={categoryId} />
+                    </div>
                 </div>
             </div>
         </div>

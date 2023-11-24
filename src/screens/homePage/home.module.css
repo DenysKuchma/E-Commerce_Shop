@@ -78,7 +78,7 @@
 .tabs__btn {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .tabs__btn_item {
   font-weight: 700;
@@ -130,8 +130,8 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: start;
+  justify-content: flex-end;
+  align-items: flex-start;
   padding: 9px 10px;
 }
 .video .video__btn {

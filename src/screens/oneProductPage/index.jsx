@@ -13,7 +13,7 @@ const OneProductPage = () => {
 
     useEffect(() => {
         dispatch(getOneProductsAC(productId));
-    }, [productId]); 
+    }, [productId, dispatch]); 
 
     const getImageURL = url => 'http://shop-roles.node.ed.asmer.org.ua/' + url;
 

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/reducers/cartReducer';
 import { getProductsAC } from '../redux/reducers/productReducer'
+
 import styles from './shopCard.module.css'
 
 const ShopCards = ({ id: categoryId }) => {
@@ -16,7 +17,7 @@ const ShopCards = ({ id: categoryId }) => {
 
     useEffect(() => {
         dispatch(getProductsAC(categoryId));
-    }, [categoryId]);
+    }, [categoryId, dispatch]);
 
     const getImageURL= (url) => 'http://shop-roles.node.ed.asmer.org.ua/' + url
 
@@ -24,7 +25,7 @@ const ShopCards = ({ id: categoryId }) => {
 
 
     return (
-        <>        
+        <>          
             {products.length > 0 && products?.map((item, index) => 
                 <div key={index} className={styles.card__item}>
                     <img className={styles.card__item_img} src={getImageURL(item.images[0].url)} alt="oops" onClick={() => goToProductPage(item._id)}/>
