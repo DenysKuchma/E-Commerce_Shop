@@ -1,12 +1,21 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { removeFromCart, updateQuantity } from '../../components/redux/reducers/cartReducer';
+import { Link, useNavigate } from 'react-router-dom';
+import { removeFromCart, sendOrder, updateQuantity } from '../../components/redux/reducers/cartReducer';
 import styles from './cartPage.module.css'
 
 const CartPage = () => {
-    const dispatch = useDispatch()
-    const cartProducts = useSelector(store => store.cart.items)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const cartProducts = useSelector(store => store.cart.items);
+    const token = useSelector(state => state.user.token);
+    
+    const checkToken = () => {
+        if (!token) {
+            navigate('/auth');
+        }
+        dispatch(sendOrder(cartProducts));
+    };
 
     const handleRemoveFromCart = (id) => {
         dispatch(removeFromCart(id));
@@ -55,11 +64,19 @@ const CartPage = () => {
             
                         </div>
                     ))}
-                    {cartProducts.length > 0 && (
-                        <div className={styles.totalPrice}>
-                            <p>Total Price: ${getTotalPrice()}</p>
+                    <div className={styles.conteiner_bottom}>
+                        <div> 
+                            <button className={styles.order_button} onClick={checkToken}>Send Order</button>
                         </div>
-                    )}
+                        <div>
+                            {cartProducts.length > 0 && (
+                            <div className={styles.totalPrice}>
+                                <p>Total Price: ${getTotalPrice()}</p>
+                            </div>
+                            )}
+                        </div>
+                    </div>
+
                 </>   
             )}
     </div>

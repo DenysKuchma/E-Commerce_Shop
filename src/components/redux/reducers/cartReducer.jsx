@@ -1,6 +1,8 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
+export const SEND_ORDER = 'SEND_ORDER';
+export const CLEAR_CART = 'CLEAR_CART';
 
 const defaultState = {
     items: [], 
@@ -68,7 +70,12 @@ export default function cartReducer(state = defaultState, action) {
             return {
                 ...state,
                 items: filteredItems,
-            };   
+            }; 
+        case CLEAR_CART:
+            return {
+                ...state,
+                items: [] 
+            };  
         default:
             return state;
     }
@@ -95,4 +102,15 @@ export const updateQuantity = (id, quantity) => ({
         id,
         quantity,
     },
+});
+
+export const sendOrder = (data) => ({
+    type: SEND_ORDER,
+    payload: {
+        data
+    },
+});
+
+export const clearCart = () => ({
+    type: CLEAR_CART
 });

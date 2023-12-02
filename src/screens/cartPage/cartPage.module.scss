@@ -49,15 +49,38 @@
     }
 }
 
-.totalPrice {
-    text-align: right;
-    font-size: 18px;
-    margin-top: 20px;
+.conteiner_bottom{
+    display: flex;
+    justify-content: space-between;
 
-    .card__itemprice {
-        color: #333;
+    .order_button{
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px 10px;
+        border: 1px solid;
+        border-image: linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%) 1;
+        letter-spacing: .1rem;
+        background: var(--gradient, linear-gradient(180deg, #BC10D8 0%, rgba(80, 0, 250, 0.93) 100%));
+
+        transition: background-color 0.2s;  
+    
+        &:hover{ 
+            background: var(--gradient, linear-gradient(180deg, #4a304f 0%, rgba(59, 32, 118, 0.93) 100%));
+        }
     }
+
+    .totalPrice {
+        font-size: 20px;
+        color: #ff0000;
+        text-decoration:underline;
+    
+        .card__itemprice {
+            color: #333;
+        }
+    }
+
 }
+
 
 .empty{
     text-align: center;
