@@ -3,9 +3,18 @@ import styles from './home.module.css';
 
 const HomePage = () => {
     const [activeContent, setActiveContent] = useState('content-1');
+    const [isVideoModalOpen, setVideoModalOpen] = useState(false);
 
     const handleTabClick = (contentId) => {
         setActiveContent(contentId);
+    };
+
+    const handleVideoOpen = () => {
+        setVideoModalOpen(true);
+    };
+
+    const handleVideoClose = () => {
+        setVideoModalOpen(false);
     };
 
     return (
@@ -64,9 +73,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>
@@ -82,9 +110,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>
@@ -100,9 +147,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>
@@ -118,9 +184,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>
@@ -136,9 +221,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>
@@ -154,9 +258,28 @@ const HomePage = () => {
                                     look beyond incredible
                                 </p>
                             </div>
+                            {isVideoModalOpen && (
+                                <div className={styles.videoModal}>
+                                    <div className={styles.videoModalContent}>
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        title="YouTube video player"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                        <button className={styles.videoModalClose} onClick={handleVideoClose}>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.video}>
-                                <button className={styles.video__btn}>
-                                    <img src="images/Play.svg" alt="" />
+                                <button className={styles.video__btn} onClick={handleVideoOpen}>
+                                    <img src="images/Play.svg" alt="Play video" />
                                 </button>
                                 <span>Watch the video</span>
                             </div>

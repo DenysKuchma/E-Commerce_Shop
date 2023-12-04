@@ -13,6 +13,7 @@ import ProductsPage from './screens/productsPage';
 import AllProdutsPage from './screens/allProductsPage';
 import OneProductPage from './screens/oneProductPage';
 import AuthPage from './screens/authPage';
+import UserAccountPage from './screens/userAccountPage';
 
 
 const Layout = () => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="contact" element={<ContactUsPage />} />
           <Route path="auth" element={<AuthPage />} />
           <Route path="cart" element={<CartPage />} />
+          <Route path="account" element={<UserAccountPage />}/>
         </Route>
       </Routes>
   )

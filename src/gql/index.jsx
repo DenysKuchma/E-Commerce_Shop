@@ -100,3 +100,17 @@ export const SEND_USER_ORDER = gql`
         }
     }
 `;
+
+export const GET_USER_INFO = gql`
+    query userFind($userId: String!) {
+        UserFindOne(query: $userId) {
+            _id 
+            login 
+            nick 
+            acl 
+            avatar { 
+                url 
+            }
+        }
+    }
+`;

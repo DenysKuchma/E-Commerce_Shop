@@ -44,4 +44,15 @@
 
 .categoriesCardButton:hover {
   background: var(--gradient, linear-gradient(180deg, #4a304f 0%, rgba(59, 32, 118, 0.93) 100%));
+}
+
+@media screen and (max-width: 900px) {
+  .categoriesCard {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 570px) {
+  .categoriesCard {
+    width: 100%;
+  }
 }/*# sourceMappingURL=categories.module.css.map */

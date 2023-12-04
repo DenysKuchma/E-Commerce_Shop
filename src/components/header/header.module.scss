@@ -77,6 +77,24 @@ $light-grey: #cacad6;
     }
 }
 
+.account_button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 5px;
+    margin: 0 5px;
+    border: 1px solid;
+    letter-spacing: .1rem;
+    transition: background-color 0.2s;  
+    border-radius: 15px;
+    &:hover{ 
+        background: var(--gradient, linear-gradient(180deg, #4a304f 0%, rgba(59, 32, 118, 0.93) 100%));
+    }
+}
+
 @media screen and (max-width: 750px) {
     .nav {
         .menu_btn {

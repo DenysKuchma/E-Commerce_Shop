@@ -15,7 +15,7 @@ function* sendOrder(action) {
     try {
     const token = yield select(state=>state.user.token) 
     const  {data}  = action.payload; 
-    const res = yield call(() => 
+    yield call(() => 
         client.mutate({ 
             mutation: SEND_USER_ORDER, 
             variables: { goods: orderDataUpdate(data) }, 

@@ -1,0 +1,58 @@
+.accountContainer {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    .title {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .avatarImage {
+        width: 100px; 
+        height: 100px; 
+        border-radius: 50%; 
+        object-fit: cover;
+    }
+
+    .infoSection {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .infoRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+
+            .label {
+                margin: 0;
+                font-weight: bold;
+            }
+
+            .value {
+                margin: 0;
+            }
+            .value_password{
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+                gap: 5px;
+
+            }
+            .button_password{
+                color: red;
+            }
+        }
+    }
+}

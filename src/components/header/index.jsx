@@ -51,11 +51,14 @@ const Header = () => {
                     <div className={styles.menu__left_item}>
                     {isAuthorized ? (
                             <>
-                                <div>Hey, {userLogin}</div>
+                                <Link to='/account' className={styles.account_button}>
+                                    <p>{userLogin}</p>
+                                    <p>My account</p>
+                                </Link>
                                 <button onClick={logout}>Logout</button>
                             </>
                         ) : (
-                            <Link to='/auth' className={styles.login}>
+                            <Link to='/auth' className={styles.account_button}>
                                 <div>LOGIN</div>
                             </Link>
                         )}
