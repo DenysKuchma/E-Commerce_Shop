@@ -4,7 +4,6 @@ import { SEND_USER_ORDER } from "../../../gql";
 import client from "../../../utils/client";
 import { clearCart, SEND_ORDER } from "../reducers/cartReducer";
 
-export const createId = new Array(10).fill(Math.random()).map(el => el * Math.random())
 
 export const orderDataUpdate = (data = []) => { 
     return data.map(({quantity, _id}) => ({good: {_id}, count: Number(quantity) })) 
@@ -15,6 +14,7 @@ function* sendOrder(action) {
     try {
     const token = yield select(state=>state.user.token) 
     const  {data}  = action.payload; 
+    console.log(orderDataUpdate(data))
     yield call(() => 
         client.mutate({ 
             mutation: SEND_USER_ORDER, 

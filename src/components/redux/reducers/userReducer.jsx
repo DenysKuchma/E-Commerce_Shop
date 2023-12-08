@@ -4,9 +4,11 @@ export const SET_USER_TOKEN = 'SET_USER_TOKEN'
 export const GET_TOKEN_ACTION ='GET_TOKEN_ACTION'
 export const GET_TOKEN_LOGIN_ACTION ='GET_TOKEN_LOGIN_ACTION'
 export const SET_USER_AUTHORIZED ='SET_USER_AUTHORIZED'
-export const GET_USER_INFO_ACTION = 'GET_USER_INFO_ACTION';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const GET_USER_INFO_ACTION = 'GET_USER_INFO_ACTION';
 export const SET_USER_INFO = 'SET_USER_INFO';
+export const GET_USER_ORDERS_ACTION = 'GET_USER_ORDERS_ACTION';
+export const SET_USER_ORDERS = 'SET_USER_ORDERS';
 export const LOGOUT_USER = 'LOGOUT_USER'
 
 
@@ -16,7 +18,8 @@ const defaultState = {
     password: '',
     authorized: false,
     userData: {},
-    userInfo: ''
+    userInfo: '',
+    orders: [],
 }
 
 export default function userReducer(state = defaultState, action){
@@ -35,11 +38,15 @@ export default function userReducer(state = defaultState, action){
                 password: action.payload.password,
             }
         case SET_USER_TOKEN:
-            const decodedToken = jwtDecode(action.payload.token);
-            return {
-                ...state,
-                token: action.payload.token,
-                userData: decodedToken
+            if (typeof action.payload.token === 'string') {
+                const decodedToken = jwtDecode(action.payload.token);
+                return {
+                    ...state,
+                    token: action.payload.token,
+                    userData: decodedToken
+                }
+            } else {
+                return state;
             }
         case SET_USER_AUTHORIZED:
             return {
@@ -55,6 +62,11 @@ export default function userReducer(state = defaultState, action){
             return {
                 ...state,
                 userInfo: action.payload,
+            };
+        case SET_USER_ORDERS:
+            return {
+                ...state,
+                orders: action.payload,
             };
         case LOGOUT_USER:
             return defaultState;
@@ -102,9 +114,20 @@ export const getUserInfoAC = (userId) => ({
     type: GET_USER_INFO_ACTION,
     payload: userId,
 });
+
 export const setUserInfo = (userInfo) => ({
     type: SET_USER_INFO,
     payload: userInfo,
+});
+
+export const getUserOrdersAC = (userId) => ({
+    type: GET_USER_ORDERS_ACTION,
+    payload: userId,
+});
+
+export const setUserOrders = (orders) => ({
+    type: SET_USER_ORDERS,
+    payload: orders,
 });
 
 export const logoutUserAC = () => ({

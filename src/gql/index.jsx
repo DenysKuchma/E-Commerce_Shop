@@ -114,3 +114,25 @@ export const GET_USER_INFO = gql`
         }
     }
 `;
+
+export const GET_USER_ORDERS = gql`
+    query orderFind($userId: String!){
+        OrderFind(query: $userId) {
+            _id
+            total
+            createdAt
+            orderGoods {
+                good {
+                    _id
+                    name
+                }
+                total
+                price
+                count
+            }
+            owner{
+                login
+            }
+        }
+    }
+`;

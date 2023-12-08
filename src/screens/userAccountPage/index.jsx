@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInfoAC } from '../../components/redux/reducers/userReducer';
+import { getUserInfoAC, getUserOrdersAC } from '../../components/redux/reducers/userReducer';
 import styles from './userAccountPage.module.css';
 
 const UserAccountPage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
-    const { token, login, password, userInfo } = useSelector(state => state.user);
+    const { token, login, password, userInfo, orders  } = useSelector(state => state.user);
 
     useEffect(() => {
         if (token && login) {
             dispatch(getUserInfoAC(login));
+            dispatch(getUserOrdersAC(login));
         }
     }, [dispatch, token, login]);
 
@@ -20,6 +21,29 @@ const UserAccountPage = () => {
         setShowPassword(!showPassword); 
     };
 
+    console.log(orders)
+    const renderOrders = () => {
+        if (!Array.isArray(orders)) {
+            return <p>No orders available.</p>;
+        }
+
+        return orders.map(order => (
+            <div key={order._id} className={styles.orderCard}>
+                <h4 className={styles.orderTitle}>Order ID: {order._id}</h4>
+                <p className={styles.orderDate}>Date: {new Date(Number(order.createdAt)).toLocaleString()}</p>
+                {order.orderGoods.map((item, index) => (
+                    <div key={index} className={styles.orderItem}>
+                        <p className={styles.itemName}>Product: {item.good?.name ?? 'Product name not available'}</p>
+                        <p className={styles.itemCount}>Quantity: {item.count}</p>
+                        <p className={styles.itemPrice}>Price per item: ${item.price}</p>
+                        <p className={styles.itemTotal}>Total: ${item.total}</p>
+                    </div>
+                ))}
+                <p className={styles.orderTotal}>Order Total: ${order.total}</p>
+            </div>
+        ));
+        
+    };
     return (
         <div className={styles.accountContainer}>
             <h2 className={styles.title}>My Account</h2>
@@ -42,7 +66,7 @@ const UserAccountPage = () => {
                     </p>
                 </div>
                 <div className={styles.infoRow}>
-                <p className={styles.label}>Avatar:</p>
+                    <p className={styles.label}>Avatar:</p>
                     {userInfo?.avatar?.url ? (
                         <img
                             src={getImageURL(userInfo.avatar.url)}
@@ -53,7 +77,14 @@ const UserAccountPage = () => {
                         <p className={styles.value}>[No Avatar]</p>
                     )}
                 </div>
+                <div className={styles.infoRow_orders}>
+                <h2 className={styles.title}>My Orders</h2>
+                    <div className={styles.allOrders}>
+                        {renderOrders()}
+                    </div>
+                </div>
             </div>
+            
         </div>
     );
 }

@@ -49,4 +49,49 @@
 }
 .accountContainer .infoSection .infoRow .button_password {
   color: red;
+}
+
+.orderCard {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.orderCard .orderTitle {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.orderCard .orderDate {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 10px;
+}
+.orderCard .orderItem {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.orderCard .orderItem:last-child {
+  margin-bottom: 0;
+}
+.orderCard .itemName {
+  font-weight: bold;
+  color: #333;
+}
+.orderCard .itemCount, .orderCard .itemPrice, .orderCard .itemTotal {
+  color: #333;
+  font-size: 14px;
+}
+.orderCard .orderTotal {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: right;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 10px;
 }/*# sourceMappingURL=userAccountPage.module.css.map */
