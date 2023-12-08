@@ -26,24 +26,36 @@ const UserAccountPage = () => {
         if (!Array.isArray(orders)) {
             return <p>No orders available.</p>;
         }
-
-        return orders.map(order => (
-            <div key={order._id} className={styles.orderCard}>
-                <h4 className={styles.orderTitle}>Order ID: {order._id}</h4>
-                <p className={styles.orderDate}>Date: {new Date(Number(order.createdAt)).toLocaleString()}</p>
-                {order.orderGoods.map((item, index) => (
-                    <div key={index} className={styles.orderItem}>
-                        <p className={styles.itemName}>Product: {item.good?.name ?? 'Product name not available'}</p>
-                        <p className={styles.itemCount}>Quantity: {item.count}</p>
-                        <p className={styles.itemPrice}>Price per item: ${item.price}</p>
-                        <p className={styles.itemTotal}>Total: ${item.total}</p>
+    
+        return orders.map(order => {
+            if (!Array.isArray(order.orderGoods)) {
+                return (
+                    <div key={order._id} className={styles.orderCard}>
+                        <h4 className={styles.orderTitle}>Order ID: {order._id}</h4>
+                        <p className={styles.orderDate}>Date: {new Date(Number(order.createdAt)).toLocaleString()}</p>
+                        <p>No goods available for this order.</p>
                     </div>
-                ))}
-                <p className={styles.orderTotal}>Order Total: ${order.total}</p>
-            </div>
-        ));
-        
+                );
+            }
+    
+            return (
+                <div key={order._id} className={styles.orderCard}>
+                    <h4 className={styles.orderTitle}>Order ID: {order._id}</h4>
+                    <p className={styles.orderDate}>Date: {new Date(Number(order.createdAt)).toLocaleString()}</p>
+                    {order.orderGoods.map((item, index) => (
+                        <div key={index} className={styles.orderItem}>
+                            <p className={styles.itemName}>Product: {item.good?.name ?? 'Product name not available'}</p>
+                            <p className={styles.itemCount}>Quantity: {item.count}</p>
+                            <p className={styles.itemPrice}>Price per item: ${item.price}</p>
+                            <p className={styles.itemTotal}>Total: ${item.total}</p>
+                        </div>
+                    ))}
+                    <p className={styles.orderTotal}>Order Total: ${order.total}</p>
+                </div>
+            );
+        });
     };
+    
     return (
         <div className={styles.accountContainer}>
             <h2 className={styles.title}>My Account</h2>
