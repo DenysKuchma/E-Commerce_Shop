@@ -23,7 +23,7 @@ const UserAccountPage = () => {
   const getImageURL = (url) =>
     url.startsWith("http")
       ? url
-      : `https://cors-anywhere.herokuapp.com/http://shop-roles.node.ed.asmer.org.ua/${url}`;
+      : `http://shop-roles.node.ed.asmer.org.ua/${url}`;
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

@@ -39,9 +39,7 @@ const ShopCards = ({ id: categoryId }) => {
     }
   };
   const sortedProducts = sortProducts(filteredProducts, sortType);
-  const getImageURL = (url) =>
-    "https://cors-anywhere.herokuapp.com/http://shop-roles.node.ed.asmer.org.ua/" +
-    url;
+  const getImageURL = (url) => "http://shop-roles.node.ed.asmer.org.ua/" + url;
   const handleAddToCart = (item) => dispatch(addToCart(item));
 
   return (

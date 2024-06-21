@@ -43,7 +43,7 @@ const SaleSlider = ({ saleCategoryId }) => {
         return <div>Loading Sale Products...</div>;
     }
     const slideImages = saleProducts.map(product => ({
-        url: 'https://cors-anywhere.herokuapp.com/http://shop-roles.node.ed.asmer.org.ua/' + product.images[0].url,
+        url: 'http://shop-roles.node.ed.asmer.org.ua/' + product.images[0].url,
         caption: product.name,
         id: product._id
     }));

@@ -16,7 +16,7 @@ const OneProductPage = () => {
   }, [productId, dispatch]);
 
   const getImageURL = (url) =>
-    "https://cors-anywhere.herokuapp.com/http://shop-roles.node.ed.asmer.org.ua/" +
+    "http://shop-roles.node.ed.asmer.org.ua/" +
     url;
 
   const handleAddToCart = (item) => dispatch(addToCart(item));
