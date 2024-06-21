@@ -10,21 +10,18 @@ import { ApolloProvider } from "@apollo/client";
 import getStore from "./components/redux";
 import { ToastContainer } from "react-toastify";
 
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 export const store = getStore();
 
-
 root.render(
-  <ApolloProvider client={client} >
+  <ApolloProvider client={client}>
     <Provider store={store}>
-      <BrowserRouter >
+      <BrowserRouter basename="/E-Commerce_Shop">
         <ToastContainer />
         <App />
       </BrowserRouter>
-    </Provider >
+    </Provider>
   </ApolloProvider>
 );
 
