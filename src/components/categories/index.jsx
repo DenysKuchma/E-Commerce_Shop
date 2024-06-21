@@ -21,9 +21,28 @@ const Categories = () => {
     (item) => item.image.url !== null
   );
 
-  const getImageURL = (url) =>
-    "https://cors-anywhere.herokuapp.com/http://shop-roles.node.ed.asmer.org.ua/" +
-    url;
+  const getImageURL = (url) => {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const targetUrl = `http://shop-roles.node.ed.asmer.org.ua/${url}`;
+
+    return fetch(proxyUrl + targetUrl, {
+      headers: {
+        Origin: window.location.origin,
+        "x-requested-with": "XMLHttpRequest",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.blob();
+      })
+      .then((blob) => URL.createObjectURL(blob))
+      .catch((error) => {
+        console.error("There was a problem with fetch operation:", error);
+        return "";
+      });
+  };
 
   return (
     <div className={styles.categoriesContainer}>
