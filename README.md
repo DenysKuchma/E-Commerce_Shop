@@ -1,5 +1,8 @@
 # E-commerce Store Simulation
 
+## Description: 
+You can create/log in to an account, browse categories, search for products, view product descriptions, place orders, manage your cart, and more.
+
 ## Technologies Used:
 React, GraphQL, SCSS, Apollo, React Router, Redux, Saga, Toastify
 
