@@ -16,5 +16,5 @@ npm/yarn ci
 npm/yarn start
 ```
 ### You can either create your own account and log in with it, or use the following credentials:
-Login: admin
+Login: admin   
 Password: 123123
